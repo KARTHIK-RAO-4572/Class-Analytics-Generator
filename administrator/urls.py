@@ -17,11 +17,4 @@ urlpatterns = [
    path("generate-analytics",views.generateAnalytics)
 
 
-# Update admin dashboard
-# Should add Button to download data
-# Generate Analytics in admin 
-# Front end for Manage database
-# 
-
-
 ]
