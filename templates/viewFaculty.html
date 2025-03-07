@@ -1,0 +1,65 @@
+{% extends 'adminNav.html' %}
+
+{% block title%}
+<title>View Faculty</title>
+{% endblock %}
+
+{% block link%}
+<link rel="stylesheet" href="/static/stylesheets/messages.css">
+
+{% endblock %}
+
+{% block profile%}
+{{name}}
+{% endblock %}
+{% block body %}
+
+    <div class="faculty-container">
+        <h1>Faculty List</h1>
+        <table>
+            <tr>
+                <th>Faculty Id</th>
+                <th>Faculty Name</th>
+                <th>Faculty Department</th>
+                <th>Generate Analytics</th>
+            </tr>
+            {% for faculty in context %}
+            <tr>
+                <td>{{faculty.facultyId}}</td>
+                <td>{{faculty.facultyName}}</td>
+                <td>{{faculty.facultyDepartment}}</td>
+                <td><a href={{faculty.generate}} class="generate-btn">Generate</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+{% block script%}
+<script src="/static/scripts/messages.js"></script>
+{% endblock %}
+    <!-- <script>   
+        gsap.to('.faculty-container', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power2.out'
+        });
+
+        gsap.to('table', {
+            opacity: 1,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power2.out'
+        });
+
+        // Add a subtle pop animation for generate buttons
+        gsap.from('.generate-btn', {
+            scale: 0.9,
+            duration: 0.5,
+            delay: 1,
+            stagger: 0.1,
+            ease: 'back.out(1.7)'
+        });
+    </script> -->
+</body>
+</html>

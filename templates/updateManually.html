@@ -1,0 +1,27 @@
+{% extends 'adminNav.html' %}
+
+{% block title%}
+<title>Database Update </title>
+{% endblock %}
+
+{% block link%}
+<link rel="stylesheet" href="/static/stylesheets/updateForm.css">
+{% endblock %}
+
+{% block profile%}
+{{name}}
+{% endblock %}
+{% block body %}
+<div class="container">
+        <h1>Update {{ updateWhat }}</h1>
+        <form action="/administrator/updatethem" method="post">
+            {%csrf_token%}
+            {% for column in fields %}
+            <label>Enter {{column}}</label>
+            <input type="text" name={{column}}>
+            {% endfor %}
+            <input type="text" name="updateWhat" value="{{updateWhat}}" hidden>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
